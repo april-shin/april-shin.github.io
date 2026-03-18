@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Alarm - Wake Up Refreshed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f9fa; /* Light background for cleaner look */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 0;
+            background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%); /* Fresh gradient based on app screenshots */
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-text {
+            flex: 1;
+            color: #333;
+            padding-right: 50px;
+        }
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #333; /* Dark color for better contrast */
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #555;
+        }
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-image img {
+            max-width: 80%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 80px 0;
+        }
+        .feature-card {
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .feature-card img {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #999;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 0;
+            }
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text p {
+                font-size: 1.1rem;
+            }
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-text">
+                <h1>Wake Up Refreshed. Rain or Shine.</h1>
+                <p>Your smarter morning starts with a personalized weather mission.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-button">Download on Google Play</a>
+                    <a href="#" class="cta-button">Download on App Store</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.ibb.co/VDPYp65/iphone-mockup-screenshot.png" alt="Weather Alarm App Screenshot">
+            </div>
+        </header>
+
+        <section class="features">
+            <div class="feature-card">
+                <img src="https://i.ibb.co/6y4tW6w/weather-icon.png" alt="Smart Weather Alarms Icon">
+                <h3>Smart Weather Alarms</h3>
+                <p>Get personalized alarms based on today's forecast. Never be caught in the rain again.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://i.ibb.co/rK5n5R5/mission-icon.png" alt="Morning Missions Icon">
+                <h3>Morning Missions</h3>
+                <p>Activate your brain with personalized cognitive missions like typing current weather text.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://i.ibb.co/Xz9DqW2/forecast-icon.png" alt="Real-time Forecasts Icon">
+                <h3>Real-time Forecasts</h3>
+                <p>See current conditions, hourly and daily charts for your city. Plan your day with confidence.</p>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Weather Alarm. All rights reserved. | Host: <a href="https://april-shin.github.io">april-shin.github.io</a>
+        }
+    </div>
+</body>
+</html>
