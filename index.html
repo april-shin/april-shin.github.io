@@ -154,6 +154,27 @@
             text-decoration: underline;
         }
 
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: #333;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 100;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero h1 {
@@ -212,6 +233,7 @@
                 </div>
                 <div class="download-buttons">
                     <a href="https://play.google.com/store/apps/details?id=com.april.weather_alarm" class="download-btn">▶ Google Play</a>
+                    <a href="#" class="download-btn" onclick="showComingSoon(event)"> App Store</a>
                 </div>
             </div>
 
@@ -240,12 +262,25 @@
                     </div>
                 </div>
                 <div class="download-buttons">
-                    <a href="#" class="download-btn">▶ Google Play</a>
-                    <a href="#" class="download-btn"> App Store</a>
+                    <a href="#" class="download-btn" onclick="showComingSoon(event)">▶ Google Play</a>
+                    <a href="#" class="download-btn" onclick="showComingSoon(event)"> App Store</a>
                 </div>
             </div>
         </section>
     </div>
+
+    <div id="toast" class="toast">Coming soon!</div>
+
+    <script>
+        function showComingSoon(e) {
+            e.preventDefault();
+            var toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
 
     <footer>
         <p>Contact: <a href="mailto:seshin0402@gmail.com">seshin0402@gmail.com</a></p>
