@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>April Apps - Weather Alarm &amp; Subway</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,7 +14,7 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f8f9fa;
             color: #333;
         }
@@ -63,16 +63,19 @@
             width: 56px;
             height: 56px;
             border-radius: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .app-icon--placeholder {
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.6rem;
-            flex-shrink: 0;
-        }
-        .app-icon--weather {
-            background: linear-gradient(135deg, #d4fc79, #96e6a1);
-        }
-        .app-icon--subway {
             background: linear-gradient(135deg, #a8edea, #6ec6ff);
         }
         .app-card-header h2 {
@@ -176,33 +179,35 @@
 <body>
     <div class="container">
         <section class="hero">
-            <h1>더 나은 하루를 위한 앱</h1>
-            <p>날씨에 맞춰 깨어나고, 지하철을 놓치지 마세요. 매일 아침을 스마트하게 시작하는 두 가지 앱을 소개합니다.</p>
+            <h1>Apps for a Better Day</h1>
+            <p>Wake up with the weather and never miss your train. Two apps to start every morning smarter.</p>
         </section>
 
         <section class="app-section">
             <!-- Weather Alarm -->
             <div class="app-card">
                 <div class="app-card-header">
-                    <div class="app-icon app-icon--weather">🌤️</div>
+                    <div class="app-icon">
+                        <img src="images/weather-alarm-icon.png" alt="Weather Alarm Icon">
+                    </div>
                     <h2>Weather Alarm</h2>
                 </div>
-                <p>오늘의 날씨에 맞춰 알람을 울려주는 스마트 알람 앱입니다. 비가 오면 더 일찍 깨워주고, 기상 미션으로 확실하게 잠을 깨워줍니다.</p>
+                <p>A smart alarm app that wakes you up based on today's weather. It alerts you earlier on rainy or snowy days and uses wake-up missions to make sure you're fully awake.</p>
                 <div class="features">
                     <div class="feature">
                         <div class="feature-emoji">⏰</div>
-                        <h4>날씨 기반 알람</h4>
-                        <p>비·눈 예보 시 알람을 앞당겨 여유 있는 아침을 만들어줍니다.</p>
+                        <h4>Weather-Based Alarms</h4>
+                        <p>Automatically adjusts your alarm when rain or snow is in the forecast, giving you extra time to prepare.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">🧠</div>
-                        <h4>기상 미션</h4>
-                        <p>현재 날씨 텍스트 따라 쓰기 등 인지 미션으로 확실하게 기상합니다.</p>
+                        <h4>Wake-Up Missions</h4>
+                        <p>Cognitive tasks like typing the current weather ensure you're fully awake before dismissing the alarm.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">📊</div>
-                        <h4>실시간 날씨</h4>
-                        <p>현재 기온, 시간별·일별 예보를 한눈에 확인하세요.</p>
+                        <h4>Real-Time Forecasts</h4>
+                        <p>View current conditions, hourly and daily forecasts at a glance to plan your day with confidence.</p>
                     </div>
                 </div>
                 <div class="download-buttons">
@@ -213,25 +218,25 @@
             <!-- Subway -->
             <div class="app-card">
                 <div class="app-card-header">
-                    <div class="app-icon app-icon--subway">🚇</div>
+                    <div class="app-icon app-icon--placeholder">🚇</div>
                     <h2>Subway</h2>
                 </div>
-                <p>실시간 지하철 도착 정보와 빠른 경로 검색을 제공하는 지하철 앱입니다. 복잡한 환승도 쉽게, 출퇴근을 더 편하게 도와줍니다.</p>
+                <p>A subway app with real-time arrival info and fast route search. It simplifies transfers and makes your daily commute easier.</p>
                 <div class="features">
                     <div class="feature">
                         <div class="feature-emoji">🕐</div>
-                        <h4>실시간 도착 정보</h4>
-                        <p>내가 탈 열차가 몇 분 후 도착하는지 실시간으로 확인합니다.</p>
+                        <h4>Real-Time Arrivals</h4>
+                        <p>Check exactly when the next train arrives at your station in real time.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">🗺️</div>
-                        <h4>경로 검색</h4>
-                        <p>출발역과 도착역을 입력하면 최적 경로와 소요 시간을 안내합니다.</p>
+                        <h4>Route Search</h4>
+                        <p>Enter your departure and destination stations to get the optimal route and estimated travel time.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">🔔</div>
-                        <h4>하차 알림</h4>
-                        <p>목적지에 가까워지면 알림을 보내 내릴 역을 놓치지 않습니다.</p>
+                        <h4>Arrival Alerts</h4>
+                        <p>Get notified when you're approaching your stop so you never miss your station.</p>
                     </div>
                 </div>
                 <div class="download-buttons">
@@ -243,6 +248,7 @@
     </div>
 
     <footer>
+        <p>Contact: <a href="mailto:seshin0402@gmail.com">seshin0402@gmail.com</a></p>
         <p>&copy; 2026 April. All rights reserved.</p>
     </footer>
 </body>
