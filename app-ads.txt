@@ -1,1 +1,4 @@
+# weather alarm - android
+google.com, pub-3206652264632834, DIRECT, f08c47fec0942fa0
+# weather alarm - ios
 google.com, pub-3206652264632834, DIRECT, f08c47fec0942fa0
