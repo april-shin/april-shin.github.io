@@ -6,7 +6,7 @@
     <title>April Apps - Weather Alarm &amp; Seoul Subway Live</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg:           #f7f8fb;
@@ -34,13 +34,16 @@
             scroll-behavior: smooth;
         }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             font-feature-settings: "cv11", "ss01";
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             background-color: var(--bg);
             color: var(--text);
             line-height: 1.5;
+        }
+        html[lang="ko"] body {
+            font-family: 'Noto Sans KR', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
         }
         ::selection {
             background: var(--accent-tint);
@@ -50,6 +53,41 @@
             max-width: 1080px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* Language switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            display: inline-flex;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 4px;
+            box-shadow: var(--shadow-sm);
+            z-index: 50;
+            backdrop-filter: saturate(180%) blur(8px);
+        }
+        .lang-btn {
+            font: inherit;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            padding: 6px 14px;
+            border: 0;
+            border-radius: 999px;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s var(--ease), background 0.2s var(--ease);
+        }
+        .lang-btn:hover {
+            color: var(--text);
+        }
+        .lang-btn.is-active {
+            background: var(--text);
+            color: white;
         }
 
         /* Hero */
@@ -64,6 +102,9 @@
             line-height: 1.1;
             margin-bottom: 20px;
             color: var(--text);
+        }
+        html[lang="ko"] .hero h1 {
+            letter-spacing: -0.025em;
         }
         .hero h1 .accent {
             background: linear-gradient(135deg, #6366f1 0%, #4f46e5 60%, #4338ca 100%);
@@ -288,6 +329,10 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            .lang-switcher {
+                top: 16px;
+                right: 16px;
+            }
             .hero {
                 padding: 80px 20px 48px;
             }
@@ -325,10 +370,17 @@
     </style>
 </head>
 <body>
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button type="button" class="lang-btn" data-lang="ko">한국어</button>
+        <button type="button" class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <div class="container">
         <section class="hero reveal">
-            <h1>Apps for a <span class="accent">Better Day</span></h1>
-            <p>Wake up with the weather and never miss your train. Two apps to start every morning smarter.</p>
+            <h1>
+                <span data-i18n="hero.title.before">Apps for a </span><span class="accent" data-i18n="hero.title.accent">Better Day</span>
+            </h1>
+            <p data-i18n="hero.subtitle">Wake up with the weather and never miss your train. Two apps to start every morning smarter.</p>
         </section>
 
         <section class="app-section">
@@ -338,24 +390,24 @@
                     <div class="app-icon">
                         <img src="images/weather-alarm-icon.png" alt="Weather Alarm Icon">
                     </div>
-                    <h2>Weather Alarm</h2>
+                    <h2 data-i18n="weather.name">Weather Alarm</h2>
                 </div>
-                <p>A smart alarm app that wakes you up based on today's weather. It alerts you earlier on rainy or snowy days and uses wake-up missions to make sure you're fully awake.</p>
+                <p data-i18n="weather.desc">A smart alarm app that wakes you up based on today's weather. It alerts you earlier on rainy or snowy days and uses wake-up missions to make sure you're fully awake.</p>
                 <div class="features">
                     <div class="feature">
                         <div class="feature-emoji">⏰</div>
-                        <h4>Weather-Based Alarms</h4>
-                        <p>Automatically adjusts your alarm when rain or snow is in the forecast, giving you extra time to prepare.</p>
+                        <h4 data-i18n="weather.f1.title">Weather-Based Alarms</h4>
+                        <p data-i18n="weather.f1.desc">Automatically adjusts your alarm when rain or snow is in the forecast, giving you extra time to prepare.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">🧠</div>
-                        <h4>Wake-Up Missions</h4>
-                        <p>Cognitive tasks like typing the current weather ensure you're fully awake before dismissing the alarm.</p>
+                        <h4 data-i18n="weather.f2.title">Wake-Up Missions</h4>
+                        <p data-i18n="weather.f2.desc">Cognitive tasks like typing the current weather ensure you're fully awake before dismissing the alarm.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">📊</div>
-                        <h4>Real-Time Forecasts</h4>
-                        <p>View current conditions, hourly and daily forecasts at a glance to plan your day with confidence.</p>
+                        <h4 data-i18n="weather.f3.title">Real-Time Forecasts</h4>
+                        <p data-i18n="weather.f3.desc">View current conditions, hourly and daily forecasts at a glance to plan your day with confidence.</p>
                     </div>
                 </div>
                 <div class="download-buttons">
@@ -370,24 +422,24 @@
                     <div class="app-icon">
                         <img src="images/subway-icon.png" alt="Seoul Subway Live Icon">
                     </div>
-                    <h2>Seoul Subway Live</h2>
+                    <h2 data-i18n="subway.name">Seoul Subway Live</h2>
                 </div>
-                <p>A Seoul metropolitan subway app with real-time train arrivals, smart route search across 23 lines, and an interactive map. Plan your commute and see exactly when the next train arrives.</p>
+                <p data-i18n="subway.desc">A Seoul metropolitan subway app with real-time train arrivals, smart route search across 23 lines, and an interactive map. Plan your commute and see exactly when the next train arrives.</p>
                 <div class="features">
                     <div class="feature">
                         <div class="feature-emoji">🕐</div>
-                        <h4>Real-Time Arrivals</h4>
-                        <p>See exactly when the next train arrives at your station, powered by Seoul Open Data.</p>
+                        <h4 data-i18n="subway.f1.title">Real-Time Arrivals</h4>
+                        <p data-i18n="subway.f1.desc">See exactly when the next train arrives at your station, powered by Seoul Open Data.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">🗺️</div>
-                        <h4>Smart Route Search</h4>
-                        <p>Find the optimal path between any two stations with transfer-aware shortest-path search.</p>
+                        <h4 data-i18n="subway.f2.title">Smart Route Search</h4>
+                        <p data-i18n="subway.f2.desc">Find the optimal path between any two stations with transfer-aware shortest-path search.</p>
                     </div>
                     <div class="feature">
                         <div class="feature-emoji">🎨</div>
-                        <h4>23 Lines Covered</h4>
-                        <p>Full Seoul metro coverage — Lines 1–9, Shinbundang, GTX-A, and every metropolitan line.</p>
+                        <h4 data-i18n="subway.f3.title">23 Lines Covered</h4>
+                        <p data-i18n="subway.f3.desc">Full Seoul metro coverage — Lines 1–9, Shinbundang, GTX-A, and every metropolitan line.</p>
                     </div>
                 </div>
                 <div class="download-buttons">
@@ -398,9 +450,92 @@
         </section>
     </div>
 
-    <div id="toast" class="toast">Coming soon!</div>
+    <div id="toast" class="toast" data-i18n="toast.comingSoon">Coming soon!</div>
+
+    <footer>
+        <p><span data-i18n="footer.contact">Contact:</span> <a href="mailto:seshin0402@gmail.com">seshin0402@gmail.com</a></p>
+        <p data-i18n="footer.copyright">&copy; 2026 April. All rights reserved.</p>
+    </footer>
 
     <script>
+        var I18N = {
+            en: {
+                'page.title': 'April Apps - Weather Alarm & Seoul Subway Live',
+                'hero.title.before': 'Apps for a ',
+                'hero.title.accent': 'Better Day',
+                'hero.subtitle': 'Wake up with the weather and never miss your train. Two apps to start every morning smarter.',
+                'weather.name': 'Weather Alarm',
+                'weather.desc': "A smart alarm app that wakes you up based on today's weather. It alerts you earlier on rainy or snowy days and uses wake-up missions to make sure you're fully awake.",
+                'weather.f1.title': 'Weather-Based Alarms',
+                'weather.f1.desc': 'Automatically adjusts your alarm when rain or snow is in the forecast, giving you extra time to prepare.',
+                'weather.f2.title': 'Wake-Up Missions',
+                'weather.f2.desc': "Cognitive tasks like typing the current weather ensure you're fully awake before dismissing the alarm.",
+                'weather.f3.title': 'Real-Time Forecasts',
+                'weather.f3.desc': 'View current conditions, hourly and daily forecasts at a glance to plan your day with confidence.',
+                'subway.name': 'Seoul Subway Live',
+                'subway.desc': 'A Seoul metropolitan subway app with real-time train arrivals, smart route search across 23 lines, and an interactive map. Plan your commute and see exactly when the next train arrives.',
+                'subway.f1.title': 'Real-Time Arrivals',
+                'subway.f1.desc': 'See exactly when the next train arrives at your station, powered by Seoul Open Data.',
+                'subway.f2.title': 'Smart Route Search',
+                'subway.f2.desc': 'Find the optimal path between any two stations with transfer-aware shortest-path search.',
+                'subway.f3.title': '23 Lines Covered',
+                'subway.f3.desc': 'Full Seoul metro coverage — Lines 1–9, Shinbundang, GTX-A, and every metropolitan line.',
+                'toast.comingSoon': 'Coming soon!',
+                'footer.contact': 'Contact:',
+                'footer.copyright': '© 2026 April. All rights reserved.'
+            },
+            ko: {
+                'page.title': 'April Apps - 웨더 알람 & 움직이는 서울지하철',
+                'hero.title.before': '더 나은 ',
+                'hero.title.accent': '하루를 위한 앱',
+                'hero.subtitle': '날씨에 맞춰 일어나고, 다음 열차도 놓치지 마세요. 더 스마트한 아침을 시작하는 두 가지 앱.',
+                'weather.name': '웨더 알람',
+                'weather.desc': '오늘의 날씨에 맞춰 깨워주는 스마트 알람 앱입니다. 비나 눈이 오는 날엔 알람을 더 일찍 울려주고, 기상 미션으로 확실하게 잠에서 깨어날 수 있도록 도와드립니다.',
+                'weather.f1.title': '날씨 기반 알람',
+                'weather.f1.desc': '비나 눈 예보가 있을 땐 알람을 자동으로 더 일찍 울려, 출근 준비 시간을 여유롭게 확보합니다.',
+                'weather.f2.title': '기상 미션',
+                'weather.f2.desc': '오늘의 날씨를 입력하는 등 인지 미션을 풀어야 알람이 꺼지므로, 완전히 깨어났는지 확인할 수 있습니다.',
+                'weather.f3.title': '실시간 일기예보',
+                'weather.f3.desc': '현재 기상, 시간별·일별 예보를 한눈에 확인하고 자신 있게 하루를 계획하세요.',
+                'subway.name': '움직이는 서울지하철',
+                'subway.desc': '수도권 지하철 실시간 도착 정보, 23개 노선의 빠른 경로 검색, 인터랙티브 노선도까지. 출퇴근 길을 더 스마트하게.',
+                'subway.f1.title': '실시간 도착 정보',
+                'subway.f1.desc': '서울 열린데이터 기반으로 다음 열차의 도착 시각을 정확히 확인하세요.',
+                'subway.f2.title': '스마트 경로 검색',
+                'subway.f2.desc': '환승 시간까지 고려한 최단 경로 알고리즘으로 어떤 두 역 사이도 빠르게.',
+                'subway.f3.title': '23개 노선 지원',
+                'subway.f3.desc': '1~9호선부터 신분당선, GTX-A까지 — 수도권 모든 노선을 한 앱에서.',
+                'toast.comingSoon': '곧 출시!',
+                'footer.contact': '문의:',
+                'footer.copyright': '© 2026 April. All rights reserved.'
+            }
+        };
+
+        function setLang(lang) {
+            if (!I18N[lang]) lang = 'en';
+            var dict = I18N[lang];
+            document.documentElement.lang = lang;
+            document.title = dict['page.title'];
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                var key = el.getAttribute('data-i18n');
+                if (dict[key] != null) el.textContent = dict[key];
+            });
+            document.querySelectorAll('.lang-btn').forEach(function(btn) {
+                btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+                btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang));
+            });
+            try { localStorage.setItem('lang', lang); } catch (e) {}
+        }
+
+        function detectInitialLang() {
+            try {
+                var saved = localStorage.getItem('lang');
+                if (saved && I18N[saved]) return saved;
+            } catch (e) {}
+            var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            return nav.indexOf('ko') === 0 ? 'ko' : 'en';
+        }
+
         function showComingSoon(e) {
             e.preventDefault();
             var toast = document.getElementById('toast');
@@ -409,6 +544,14 @@
                 toast.classList.remove('show');
             }, 2000);
         }
+
+        // Init i18n
+        document.querySelectorAll('.lang-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                setLang(btn.getAttribute('data-lang'));
+            });
+        });
+        setLang(detectInitialLang());
 
         // Reveal-on-scroll
         (function() {
@@ -431,10 +574,5 @@
             });
         })();
     </script>
-
-    <footer>
-        <p>Contact: <a href="mailto:seshin0402@gmail.com">seshin0402@gmail.com</a></p>
-        <p>&copy; 2026 April. All rights reserved.</p>
-    </footer>
 </body>
 </html>
